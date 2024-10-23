@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using System.IO;
 using System.Reflection;
 using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace Clock
 {
@@ -20,20 +22,37 @@ namespace Clock
 		ColorDialog foregroundColorDialog;
 		//FontDialog fontDialog;
 		ChooseFont chooseFontDialog;
+		string fontName { get; set; }
 		public MainForm()
 		{
 			InitializeComponent();
-			SetFontDirectory();
+
+			RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+			//if (!IsStartupItem())
+			// Добавить значение в реестр для запуска напару с ОС
+			rkApp.SetValue("Clock.exe", Application.ExecutablePath.ToString());
+
+			//RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+			//if (IsStartupItem())
+				// Удаляем
+				//rkApp.DeleteValue("Clock.exe", false);
+
 
 			this.TransparencyKey = Color.Empty;
 			backgroundColorDialog = new ColorDialog();
 			foregroundColorDialog = new ColorDialog();
 
+			SetFontDirectory();
+			LoadSettings();
+
+
 			chooseFontDialog = new ChooseFont();
 
 			//fontDialog = new FontDialog();
-			foregroundColorDialog.Color = Color.Black;
-			backgroundColorDialog.Color = Color.Green;
+			//foregroundColorDialog.Color = Color.Black;
+			//backgroundColorDialog.Color = Color.Green;
+			
 			this.Location = new Point
 				(
 				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width - this.Width,
@@ -42,6 +61,40 @@ namespace Clock
 			SetVisibility(false);
 			
 			this.Text += $" Location: {Location.X}x{Location.Y}";
+		}
+		void SaveSettings()
+		{
+			StreamWriter sw = new StreamWriter("settings.txt");
+			sw.WriteLine(backgroundColorDialog.Color.ToArgb()); //to Argb возвр числовой код цвета
+			sw.WriteLine(foregroundColorDialog.Color.ToArgb());
+			sw.WriteLine(labelTime.Font.Name);
+			sw.Close();
+			Process.Start("notepad", "settings.txt");
+		}
+		void LoadSettings()
+		{
+			//SetFontDirectory();
+			StreamReader sr = new StreamReader("settings.txt");
+			try
+			{
+				//sr = new StreamReader("settings.txt");
+			}
+			catch (FileNotFoundException e)
+			{
+
+			}
+			List<string> settings = new List<string>();
+			while(!sr.EndOfStream)
+			{
+				settings.Add(sr.ReadLine());
+			}
+			sr.Close();
+			backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[0]));
+			foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[1]));
+			labelTime.ForeColor = foregroundColorDialog.Color;
+			labelTime.BackColor = backgroundColorDialog.Color;
+
+
 		}
 		private void SetFontDirectory()
 		{
@@ -69,7 +122,7 @@ namespace Clock
 			this.ShowInTaskbar = visible;
 			cbShowDate.Visible = visible;
 			btnHideControls.Visible = visible;
-			labelTime.BackColor = visible ? Color.Empty : Color.Coral;
+			labelTime.BackColor = visible ? Color.Empty : backgroundColorDialog.Color;
 			WindowState = visible ? FormWindowState.Normal : FormWindowState.Maximized;
 
 			//Как это работает?
@@ -242,6 +295,16 @@ namespace Clock
 				}
 				//}
 			}
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			SaveSettings();
 		}
 	}
 }

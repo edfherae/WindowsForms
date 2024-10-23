@@ -198,6 +198,8 @@
 			this.Controls.Add(this.cbShowDate);
 			this.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.Name = "MainForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.Click += new System.EventHandler(this.MainForm_Click);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
