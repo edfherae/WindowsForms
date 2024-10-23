@@ -1,3 +1,5 @@
 -128
 -65281
-Microsoft Sans Serif
+Bestie Seventy.ttf
+False
+True

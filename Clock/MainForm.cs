@@ -22,7 +22,7 @@ namespace Clock
 		ColorDialog foregroundColorDialog;
 		//FontDialog fontDialog;
 		ChooseFont chooseFontDialog;
-		string fontName { get; set; }
+		string FontFile { get; set; }
 		public MainForm()
 		{
 			InitializeComponent();
@@ -44,10 +44,10 @@ namespace Clock
 			foregroundColorDialog = new ColorDialog();
 
 			SetFontDirectory();
-			LoadSettings();
 
 
 			chooseFontDialog = new ChooseFont();
+			LoadSettings();
 
 			//fontDialog = new FontDialog();
 			//foregroundColorDialog.Color = Color.Black;
@@ -67,7 +67,9 @@ namespace Clock
 			StreamWriter sw = new StreamWriter("settings.txt");
 			sw.WriteLine(backgroundColorDialog.Color.ToArgb()); //to Argb возвр числовой код цвета
 			sw.WriteLine(foregroundColorDialog.Color.ToArgb());
-			sw.WriteLine(labelTime.Font.Name);
+			sw.WriteLine(chooseFontDialog.FontFile.Split('\\').Last());
+			sw.WriteLine(topmostToolStripMenuItem.Checked);
+			sw.WriteLine(showDateToolStripMenuItem.Checked);
 			sw.Close();
 			Process.Start("notepad", "settings.txt");
 		}
@@ -91,9 +93,12 @@ namespace Clock
 			sr.Close();
 			backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[0]));
 			foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[1]));
+			FontFile = settings.ToArray()[2];
+			labelTime.Font = chooseFontDialog.SetFontFile(FontFile);
 			labelTime.ForeColor = foregroundColorDialog.Color;
 			labelTime.BackColor = backgroundColorDialog.Color;
-
+			topmostToolStripMenuItem.Checked = bool.Parse(settings.ToArray()[3]);
+			showDateToolStripMenuItem.Checked = bool.Parse(settings.ToArray()[4]);
 
 		}
 		private void SetFontDirectory()
