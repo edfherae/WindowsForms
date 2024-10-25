@@ -58,7 +58,7 @@ namespace Clock
 				(Convert.ToInt32(labelSeconds.Text) - 1) < 0 ? 0 : Convert.ToInt32(labelSeconds.Text) - 1
 				);
 			Time.AddSeconds(Convert.ToDouble(labelSeconds.Text));
-			Time.
+			//Time.
 		}
 	}
 }

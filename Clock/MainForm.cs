@@ -28,10 +28,10 @@ namespace Clock
 		{
 			InitializeComponent();
 
-			RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+			//RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 			//if (!IsStartupItem())
 			// Добавить значение в реестр для запуска напару с ОС
-			rkApp.SetValue("Clock.exe", Application.ExecutablePath.ToString());
+			//rkApp.SetValue("Clock.exe", Application.ExecutablePath.ToString());
 
 			//RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
@@ -103,6 +103,10 @@ namespace Clock
 			topmostToolStripMenuItem.Checked = bool.Parse(settings.ToArray()[3]);
 			showDateToolStripMenuItem.Checked = bool.Parse(settings.ToArray()[4]);
 
+			RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", false);
+			object run = rk.GetValue("Clock");
+			if (run != null) loadOnWindowsStartupToolStripMenuItem.Checked = true;
+			rk.Dispose();
 		}
 		private void SetFontDirectory()
 		{
@@ -321,6 +325,15 @@ namespace Clock
 			{
 				//setTimerDialog.
 			}
+		}
+
+		private void loadOnWindowsStartupToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+		{
+
+			RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true); //regedit, стрелочки, короткий поиск через клавиатуру, copy key name
+			if (loadOnWindowsStartupToolStripMenuItem.Checked) rk.SetValue("Clock", Application.ExecutablePath);
+			else rk.DeleteValue("Clock", false);
+			rk.Dispose();
 		}
 	}
 }

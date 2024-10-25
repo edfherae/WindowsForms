@@ -36,6 +36,9 @@
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.alarmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.topmostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.showControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,9 +52,6 @@
 			this.loadOnWindowsStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.alarmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -115,6 +115,22 @@
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
 			this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+			// 
+			// alarmToolStripMenuItem
+			// 
+			this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
+			resources.ApplyResources(this.alarmToolStripMenuItem, "alarmToolStripMenuItem");
+			// 
+			// timerToolStripMenuItem
+			// 
+			this.timerToolStripMenuItem.Name = "timerToolStripMenuItem";
+			resources.ApplyResources(this.timerToolStripMenuItem, "timerToolStripMenuItem");
+			this.timerToolStripMenuItem.Click += new System.EventHandler(this.timerToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
 			// 
 			// topmostToolStripMenuItem
 			// 
@@ -180,8 +196,10 @@
 			// 
 			// loadOnWindowsStartupToolStripMenuItem
 			// 
+			this.loadOnWindowsStartupToolStripMenuItem.CheckOnClick = true;
 			this.loadOnWindowsStartupToolStripMenuItem.Name = "loadOnWindowsStartupToolStripMenuItem";
 			resources.ApplyResources(this.loadOnWindowsStartupToolStripMenuItem, "loadOnWindowsStartupToolStripMenuItem");
+			this.loadOnWindowsStartupToolStripMenuItem.CheckedChanged += new System.EventHandler(this.loadOnWindowsStartupToolStripMenuItem_CheckedChanged);
 			// 
 			// toolStripSeparator4
 			// 
@@ -193,22 +211,6 @@
 			this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
 			resources.ApplyResources(this.closeToolStripMenuItem, "closeToolStripMenuItem");
 			this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
-			// 
-			// timerToolStripMenuItem
-			// 
-			this.timerToolStripMenuItem.Name = "timerToolStripMenuItem";
-			resources.ApplyResources(this.timerToolStripMenuItem, "timerToolStripMenuItem");
-			this.timerToolStripMenuItem.Click += new System.EventHandler(this.timerToolStripMenuItem_Click);
-			// 
-			// alarmToolStripMenuItem
-			// 
-			this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
-			resources.ApplyResources(this.alarmToolStripMenuItem, "alarmToolStripMenuItem");
-			// 
-			// toolStripSeparator5
-			// 
-			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
 			// 
 			// MainForm
 			// 
