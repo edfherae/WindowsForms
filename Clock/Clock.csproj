@@ -52,6 +52,12 @@
     <Compile Include="ChooseFont.Designer.cs">
       <DependentUpon>ChooseFont.cs</DependentUpon>
     </Compile>
+    <Compile Include="SetTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetTimer.Designer.cs">
+      <DependentUpon>SetTimer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChooseFont.resx">
       <DependentUpon>ChooseFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetTimer.resx">
+      <DependentUpon>SetTimer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -89,4 +98,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

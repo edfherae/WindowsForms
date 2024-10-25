@@ -1,5 +1,5 @@
 -128
 -65281
 Bestie Seventy.ttf
-False
+True
 True

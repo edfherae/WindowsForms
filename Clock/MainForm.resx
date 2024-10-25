@@ -222,8 +222,77 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>295, 14</value>
   </metadata>
+  <data name="alarmToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="alarmToolStripMenuItem.Text" xml:space="preserve">
+    <value>Set alarm</value>
+  </data>
+  <data name="timerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="timerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Set timer</value>
+  </data>
+  <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="topmostToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="topmostToolStripMenuItem.Text" xml:space="preserve">
+    <value>Topmost</value>
+  </data>
+  <data name="showControlsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="showControlsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show controls</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="showDateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="showDateToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show date</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="colorsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="colorsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="fontsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="fontsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fonts</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="loadOnWindowsStartupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="loadOnWindowsStartupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Load on Windows startup</value>
+  </data>
+  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 182</value>
+    <value>204, 254</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -1369,36 +1438,6 @@
   <data name="notifyIconSystemTray.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="topmostToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="topmostToolStripMenuItem.Text" xml:space="preserve">
-    <value>Topmost</value>
-  </data>
-  <data name="showControlsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="showControlsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show controls</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
-  </data>
-  <data name="showDateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="showDateToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show date</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
-  </data>
-  <data name="colorsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="colorsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Colors</value>
-  </data>
   <data name="foregroundToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
@@ -1410,30 +1449,6 @@
   </data>
   <data name="backgroundColorToolStripMenuItem.Text" xml:space="preserve">
     <value>Background color</value>
-  </data>
-  <data name="fontsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="fontsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fonts</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
-  </data>
-  <data name="loadOnWIndowsStartupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="loadOnWIndowsStartupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Load on WIndows startup</value>
-  </data>
-  <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 6</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 22</value>
-  </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Close</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2654,10 +2669,10 @@
   <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;loadOnWIndowsStartupToolStripMenuItem.Name" xml:space="preserve">
-    <value>loadOnWIndowsStartupToolStripMenuItem</value>
+  <data name="&gt;&gt;loadOnWindowsStartupToolStripMenuItem.Name" xml:space="preserve">
+    <value>loadOnWindowsStartupToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;loadOnWIndowsStartupToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;loadOnWindowsStartupToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
@@ -2671,6 +2686,24 @@
   </data>
   <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerToolStripMenuItem.Name" xml:space="preserve">
+    <value>timerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;timerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;alarmToolStripMenuItem.Name" xml:space="preserve">
+    <value>alarmToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;alarmToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

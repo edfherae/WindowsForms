@@ -46,9 +46,12 @@
 			this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fontsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.loadOnWIndowsStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.loadOnWindowsStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.timerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.alarmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -95,6 +98,9 @@
 			// contextMenuStrip1
 			// 
 			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alarmToolStripMenuItem,
+            this.timerToolStripMenuItem,
+            this.toolStripSeparator5,
             this.topmostToolStripMenuItem,
             this.showControlsToolStripMenuItem,
             this.toolStripSeparator1,
@@ -103,7 +109,7 @@
             this.colorsToolStripMenuItem,
             this.fontsToolStripMenuItem,
             this.toolStripSeparator3,
-            this.loadOnWIndowsStartupToolStripMenuItem,
+            this.loadOnWindowsStartupToolStripMenuItem,
             this.toolStripSeparator4,
             this.closeToolStripMenuItem});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -172,10 +178,10 @@
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
 			// 
-			// loadOnWIndowsStartupToolStripMenuItem
+			// loadOnWindowsStartupToolStripMenuItem
 			// 
-			this.loadOnWIndowsStartupToolStripMenuItem.Name = "loadOnWIndowsStartupToolStripMenuItem";
-			resources.ApplyResources(this.loadOnWIndowsStartupToolStripMenuItem, "loadOnWIndowsStartupToolStripMenuItem");
+			this.loadOnWindowsStartupToolStripMenuItem.Name = "loadOnWindowsStartupToolStripMenuItem";
+			resources.ApplyResources(this.loadOnWindowsStartupToolStripMenuItem, "loadOnWindowsStartupToolStripMenuItem");
 			// 
 			// toolStripSeparator4
 			// 
@@ -187,6 +193,22 @@
 			this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
 			resources.ApplyResources(this.closeToolStripMenuItem, "closeToolStripMenuItem");
 			this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+			// 
+			// timerToolStripMenuItem
+			// 
+			this.timerToolStripMenuItem.Name = "timerToolStripMenuItem";
+			resources.ApplyResources(this.timerToolStripMenuItem, "timerToolStripMenuItem");
+			this.timerToolStripMenuItem.Click += new System.EventHandler(this.timerToolStripMenuItem_Click);
+			// 
+			// alarmToolStripMenuItem
+			// 
+			this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
+			resources.ApplyResources(this.alarmToolStripMenuItem, "alarmToolStripMenuItem");
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
 			// 
 			// MainForm
 			// 
@@ -223,11 +245,14 @@
 		private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripMenuItem loadOnWIndowsStartupToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem loadOnWindowsStartupToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem foregroundToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem alarmToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 	}
 }
 

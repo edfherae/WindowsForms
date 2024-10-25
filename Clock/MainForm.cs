@@ -22,6 +22,7 @@ namespace Clock
 		ColorDialog foregroundColorDialog;
 		//FontDialog fontDialog;
 		ChooseFont chooseFontDialog;
+		SetTimer setTimerDialog;
 		string FontFile { get; set; }
 		public MainForm()
 		{
@@ -47,6 +48,8 @@ namespace Clock
 
 
 			chooseFontDialog = new ChooseFont();
+			setTimerDialog = new SetTimer();
+
 			LoadSettings();
 
 			//fontDialog = new FontDialog();
@@ -310,6 +313,14 @@ namespace Clock
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SaveSettings();
+		}
+
+		private void timerToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if(setTimerDialog.ShowDialog() == DialogResult.OK)
+			{
+				//setTimerDialog.
+			}
 		}
 	}
 }
