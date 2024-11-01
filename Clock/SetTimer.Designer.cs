@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.ButtonHourPlus = new System.Windows.Forms.Button();
 			this.labelHours = new System.Windows.Forms.Label();
 			this.ButtonOk = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// ButtonHourPlus
@@ -80,6 +82,7 @@
 			this.ButtonOk.TabIndex = 7;
 			this.ButtonOk.Text = "OK";
 			this.ButtonOk.UseVisualStyleBackColor = false;
+			this.ButtonOk.Click += new System.EventHandler(this.ButtonOk_Click);
 			// 
 			// ButtonCancel
 			// 
@@ -210,6 +213,11 @@
 			this.label3.TabIndex = 18;
 			this.label3.Text = "s";
 			// 
+			// timer1
+			// 
+			this.timer1.Interval = 1000;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
 			// SetTimer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,5 +262,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Timer timer1;
 	}
 }

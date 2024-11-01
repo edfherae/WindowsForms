@@ -261,18 +261,6 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 6</value>
   </data>
-  <data name="foregroundToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="foregroundToolStripMenuItem.Text" xml:space="preserve">
-    <value>Foreground color</value>
-  </data>
-  <data name="backgroundColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="backgroundColorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Background color</value>
-  </data>
   <data name="colorsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 22</value>
   </data>
@@ -1449,6 +1437,18 @@
   </data>
   <data name="notifyIconSystemTray.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="foregroundToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="foregroundToolStripMenuItem.Text" xml:space="preserve">
+    <value>Foreground color</value>
+  </data>
+  <data name="backgroundColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="backgroundColorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Background color</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -120,6 +120,7 @@
 			// 
 			this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
 			resources.ApplyResources(this.alarmToolStripMenuItem, "alarmToolStripMenuItem");
+			this.alarmToolStripMenuItem.Click += new System.EventHandler(this.alarmToolStripMenuItem_Click);
 			// 
 			// timerToolStripMenuItem
 			// 
@@ -223,8 +224,6 @@
 			this.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.Name = "MainForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-			this.Load += new System.EventHandler(this.MainForm_Load);
-			this.Click += new System.EventHandler(this.MainForm_Click);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
