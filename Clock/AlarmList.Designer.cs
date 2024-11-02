@@ -37,14 +37,15 @@
 			// listBoxAlarms
 			// 
 			this.listBoxAlarms.FormattingEnabled = true;
-			this.listBoxAlarms.Location = new System.Drawing.Point(23, 23);
+			this.listBoxAlarms.Location = new System.Drawing.Point(12, 12);
 			this.listBoxAlarms.Name = "listBoxAlarms";
-			this.listBoxAlarms.Size = new System.Drawing.Size(406, 82);
+			this.listBoxAlarms.Size = new System.Drawing.Size(403, 186);
 			this.listBoxAlarms.TabIndex = 0;
+			this.listBoxAlarms.DoubleClick += new System.EventHandler(this.listBoxAlarms_DoubleClick);
 			// 
 			// buttonAddAlarm
 			// 
-			this.buttonAddAlarm.Location = new System.Drawing.Point(530, 54);
+			this.buttonAddAlarm.Location = new System.Drawing.Point(421, 12);
 			this.buttonAddAlarm.Name = "buttonAddAlarm";
 			this.buttonAddAlarm.Size = new System.Drawing.Size(75, 23);
 			this.buttonAddAlarm.TabIndex = 1;
@@ -54,7 +55,7 @@
 			// 
 			// buttonDeleteAlarm
 			// 
-			this.buttonDeleteAlarm.Location = new System.Drawing.Point(556, 95);
+			this.buttonDeleteAlarm.Location = new System.Drawing.Point(421, 41);
 			this.buttonDeleteAlarm.Name = "buttonDeleteAlarm";
 			this.buttonDeleteAlarm.Size = new System.Drawing.Size(75, 23);
 			this.buttonDeleteAlarm.TabIndex = 2;
@@ -65,7 +66,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(659, 208);
+			this.ClientSize = new System.Drawing.Size(502, 208);
 			this.Controls.Add(this.buttonDeleteAlarm);
 			this.Controls.Add(this.buttonAddAlarm);
 			this.Controls.Add(this.listBoxAlarms);
