@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace Clock
 {
@@ -25,13 +26,16 @@ namespace Clock
 		ChooseFont chooseFontDialog;
 		AlarmList alarmList;
 		SetTimer setTimerDialog;
+
+		Alarm alarm;
+
 		string FontFile { get; set; }
 
 		public MainForm()
 		{
 			InitializeComponent();
 
-			//AllocConsole();  
+			AllocConsole();  
 
 
 			//RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
@@ -53,8 +57,8 @@ namespace Clock
 			chooseFontDialog = new ChooseFont();
 			LoadSettings();
 
-			alarmList = new AlarmList();
 			setTimerDialog = new SetTimer();
+			alarmList = new AlarmList();
 
 			//fontDialog = new FontDialog();
 			//foregroundColorDialog.Color = Color.Black;
@@ -68,6 +72,9 @@ namespace Clock
 				);
 			
 			this.Text += $" Location: {Location.X}x{Location.Y}";
+
+			alarm = new Alarm();
+			GetNextAlarm();
 		}
 
 		/// <summary>
@@ -129,13 +136,13 @@ namespace Clock
 		}
 		private void SetVisibility(bool visible)
 		{
+			WindowState = visible ? FormWindowState.Normal : FormWindowState.Maximized;
 			this.TransparencyKey = visible ? Color.Empty : this.BackColor;
 			this.FormBorderStyle = visible ? FormBorderStyle.Sizable : FormBorderStyle.None;
 			this.ShowInTaskbar = visible;
 			cbShowDate.Visible = visible;
 			btnHideControls.Visible = visible;
 			labelTime.BackColor = visible ? Color.Empty : backgroundColorDialog.Color;
-			WindowState = visible ? FormWindowState.Normal : FormWindowState.Maximized;
 
 			//Как это работает?
 			//.Location
@@ -154,20 +161,51 @@ namespace Clock
 		/// Event handling
 		/// </summary>
 
+		void GetNextAlarm()
+		{
+			List<Alarm> alarms = new List<Alarm>();
+			foreach (Alarm item in alarmList.ListBoxAlarms.Items)
+			{
+				if(item.Time > DateTime.Now)alarms.Add(item);
+			}
+			if(alarms.Min() != null)alarm = alarms.Min();
+			//List<TimeSpan> intervals = new List<TimeSpan>();
+			//foreach (Alarm item in alarmList.ListBoxAlarms.Items)
+			//{
+				//TimeSpan min = new TimeSpan(24,0,0);
+				//if (DateTime.Now - item.Time < min) alarm = item;
+			//}
+            Console.WriteLine(alarm);
+		}
+
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			labelTime.Text = DateTime.Now.ToString("HH:mm:ss");
-			if (cbShowDate.Checked)
-			{
-				labelTime.Text += $" {DateTime.Today.ToString("yyyy.MM.dd")}";
-			}
+			if (cbShowDate.Checked)labelTime.Text += $" {DateTime.Today.ToString("yyyy.MM.dd")}";
+			if (showWeekdayToolStripMenuItem.Checked) labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			notifyIconSystemTray.Text = "Current time: " + labelTime.Text;
+			if (
+				alarm.Weekdays[DateTime.Now.DayOfWeek - 1 < 0 ? 6 : (int)DateTime.Now.DayOfWeek - 1] == true &&
+				DateTime.Now.Hour == alarm.Time.Hour && 
+				DateTime.Now.Minute == alarm.Time.Minute && 
+				DateTime.Now.Second == alarm.Time.Second
+				)
+			{
+				MessageBox.Show(alarm.Filename, "Alarm!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("ALARM:----" + alarm.ToString());
+                GetNextAlarm();
+			}
+			if(DateTime.Now.Second == 0)
+			{
+				GetNextAlarm();
+                Console.WriteLine("Minute");
+            }
 		}
 
-		//labelTime
+		#region labelTime
 		private void labelTime_MouseClick(object sender, MouseEventArgs e)
 		{
-			
+
 		}
 		private void labelTime_DoubleClick(object sender, EventArgs e)
 		{
@@ -179,7 +217,7 @@ namespace Clock
 		}
 		private void labelTime_MouseEnter(object sender, EventArgs e)
 		{
-			if (WindowState == FormWindowState.Maximized)labelTime.Cursor = Cursors.SizeAll;
+			if (WindowState == FormWindowState.Maximized) labelTime.Cursor = Cursors.SizeAll;
 			//this.Cursor = new Cursor()
 		}
 		private void labelTime_MouseLeave(object sender, EventArgs e)
@@ -196,26 +234,26 @@ namespace Clock
 			//labelTime.Location = new Point(x, y);
 
 			//MessageBox.Show($"Label X: {labelTime.Location.X} Y: {labelTime.Location.Y}\n" +
-				//$"Cursor X:{e.X}, Y:{e.Y}\n");
+			//$"Cursor X:{e.X}, Y:{e.Y}\n");
 		}
 		private void labelTime_MouseDown(object sender, MouseEventArgs e)
 		{
-			
+
 		}
 		private void labelTime_MouseMove(object sender, MouseEventArgs e)
 		{
 			//int x = e.X < Screen.PrimaryScreen.Bounds.X ? Screen.PrimaryScreen.Bounds.X : e.X > Screen.PrimaryScreen.Bounds.Width ? Screen.PrimaryScreen.Bounds.Width : e.X;
 			//int y = e.Y < Screen.PrimaryScreen.Bounds.Y ? Screen.PrimaryScreen.Bounds.Y : e.Y > Screen.PrimaryScreen.Bounds.Height ? Screen.PrimaryScreen.Bounds.Height : e.Y;
-			if (WindowState != FormWindowState.Maximized)labelTime.Cursor = Cursors.Default;
+			if (WindowState != FormWindowState.Maximized) labelTime.Cursor = Cursors.Default;
 
 			if (Button.MouseButtons == MouseButtons.Left)
 			{
 				//if (WindowState == FormWindowState.Normal)
 				//{
-					//int x = Cursor.Position.X < this.Location.X ? this.Location.X : Cursor.Position.X > this.Width ? this.Width : Cursor.Position.X;
-					//int y = Cursor.Position.Y < this.Location.Y ? this.Location.Y : Cursor.Position.Y > this.Height ? this.Height : Cursor.Position.Y;
-					//labelTime.Location = new Point(x - 50, y - 50);
-					//this.Text = $"x: {x}, y: {y}";
+				//int x = Cursor.Position.X < this.Location.X ? this.Location.X : Cursor.Position.X > this.Width ? this.Width : Cursor.Position.X;
+				//int y = Cursor.Position.Y < this.Location.Y ? this.Location.Y : Cursor.Position.Y > this.Height ? this.Height : Cursor.Position.Y;
+				//labelTime.Location = new Point(x - 50, y - 50);
+				//this.Text = $"x: {x}, y: {y}";
 				//}
 				//else 
 				//{
@@ -228,7 +266,8 @@ namespace Clock
 				}
 				//}
 			}
-		}
+		} 
+		#endregion
 
 		private void btnHideControls_Click(object sender, EventArgs e)
 		{
@@ -238,14 +277,14 @@ namespace Clock
 			//MessageBox.Show("Hide controls");
 		}
 
-		//Tray icon
+		#region TrayIcon
 		private void notifyIconSystemTray_MouseClick(object sender, MouseEventArgs e)
 		{
 			//contextMenuStrip1.
 		}
 		private void notifyIconSystemTray_DoubleClick(object sender, EventArgs e)
 		{
-			if(!TopMost) 
+			if (!TopMost)
 			{
 				TopMost = true;
 				TopMost = false;
@@ -258,9 +297,10 @@ namespace Clock
 		private void notifyIconSystemTray_BalloonTipClicked(object sender, EventArgs e)
 		{
 			SetVisibility(true);
-		}
+		} 
+		#endregion
 
-		//MenuStrip {
+		#region MenuStrip
 		private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
 		{
 
@@ -269,11 +309,11 @@ namespace Clock
 		private void alarmToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			alarmList.ShowDialog(this);
-			//Process
+			GetNextAlarm();
 		}
 		private void timerToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if(setTimerDialog.ShowDialog() == DialogResult.OK)
+			if (setTimerDialog.ShowDialog() == DialogResult.OK)
 			{
 				//setTimerDialog.
 			}
@@ -301,14 +341,14 @@ namespace Clock
 		private void foregroundToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			//ColorDialog омжно и через toolbox
-			if(foregroundColorDialog.ShowDialog(this) == DialogResult.OK) 
+			if (foregroundColorDialog.ShowDialog(this) == DialogResult.OK)
 			{
 				labelTime.ForeColor = foregroundColorDialog.Color;
 			}
 		}
 		private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if(backgroundColorDialog.ShowDialog(this) == DialogResult.OK) 
+			if (backgroundColorDialog.ShowDialog(this) == DialogResult.OK)
 			{
 				labelTime.BackColor = backgroundColorDialog.Color;
 			}
@@ -333,7 +373,7 @@ namespace Clock
 		{
 			this.Close();
 		}
-		// } MenuStrip
+		#endregion
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{

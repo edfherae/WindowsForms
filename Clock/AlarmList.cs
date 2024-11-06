@@ -12,6 +12,11 @@ namespace Clock
 {
 	public partial class AlarmList : Form
 	{
+		public ListBox ListBoxAlarms 
+		{
+			get => listBoxAlarms;
+			private set => listBoxAlarms = value;
+		}
 		public AlarmList()
 		{
 			InitializeComponent();
@@ -23,6 +28,7 @@ namespace Clock
 			if(addAlarm.ShowDialog(this) == DialogResult.OK)
 			{
 				listBoxAlarms.Items.Add(addAlarm.Alarm);
+				//MainForm.GetN
 			}
 		}
 

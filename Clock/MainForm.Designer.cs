@@ -52,6 +52,7 @@
 			this.loadOnWindowsStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.showWeekdayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -105,6 +106,7 @@
             this.showControlsToolStripMenuItem,
             this.toolStripSeparator1,
             this.showDateToolStripMenuItem,
+            this.showWeekdayToolStripMenuItem,
             this.toolStripSeparator2,
             this.colorsToolStripMenuItem,
             this.fontsToolStripMenuItem,
@@ -213,6 +215,12 @@
 			resources.ApplyResources(this.closeToolStripMenuItem, "closeToolStripMenuItem");
 			this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
 			// 
+			// showWeekdayToolStripMenuItem
+			// 
+			this.showWeekdayToolStripMenuItem.CheckOnClick = true;
+			this.showWeekdayToolStripMenuItem.Name = "showWeekdayToolStripMenuItem";
+			resources.ApplyResources(this.showWeekdayToolStripMenuItem, "showWeekdayToolStripMenuItem");
+			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -254,6 +262,7 @@
 		private System.Windows.Forms.ToolStripMenuItem alarmToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem timerToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripMenuItem showWeekdayToolStripMenuItem;
 	}
 }
 

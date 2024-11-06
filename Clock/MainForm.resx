@@ -187,7 +187,7 @@
     <value>Microsoft Sans Serif, 48pt</value>
   </data>
   <data name="labelTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 26</value>
+    <value>8, 26</value>
   </data>
   <data name="labelTime.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>1000, 1000</value>
@@ -258,8 +258,26 @@
   <data name="showDateToolStripMenuItem.Text" xml:space="preserve">
     <value>Show date</value>
   </data>
+  <data name="showWeekdayToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="showWeekdayToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show Weekday</value>
+  </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 6</value>
+  </data>
+  <data name="foregroundToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="foregroundToolStripMenuItem.Text" xml:space="preserve">
+    <value>Foreground color</value>
+  </data>
+  <data name="backgroundColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="backgroundColorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Background color</value>
   </data>
   <data name="colorsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 22</value>
@@ -1438,18 +1456,6 @@
   <data name="notifyIconSystemTray.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="foregroundToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="foregroundToolStripMenuItem.Text" xml:space="preserve">
-    <value>Foreground color</value>
-  </data>
-  <data name="backgroundColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="backgroundColorToolStripMenuItem.Text" xml:space="preserve">
-    <value>Background color</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1457,7 +1463,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+    <value>781, 450</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2591,6 +2597,9 @@
         /////wD/////////gf////////+B//////8=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>
   </data>
@@ -2703,6 +2712,12 @@
     <value>closeToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showWeekdayToolStripMenuItem.Name" xml:space="preserve">
+    <value>showWeekdayToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;showWeekdayToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
