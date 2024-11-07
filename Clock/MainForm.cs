@@ -75,6 +75,8 @@ namespace Clock
 
 			alarm = new Alarm();
 			GetNextAlarm();
+
+			this.axWindowsMediaPlayer1.Visible = false;
 		}
 
 		/// <summary>
@@ -150,6 +152,7 @@ namespace Clock
 			Point labelpoint = new Point(18, 26);
 			labelTime.Location = visible ? labelpoint : new Point(labelTime.Location.X, labelTime.Location.Y);
 
+			axWindowsMediaPlayer1.Visible = visible;
 			//Screen screen = Screen.PrimaryScreen;
 			//labelTime.Location = new Point(System.Windows.Forms.Screen.GetBounds();
 
@@ -161,7 +164,7 @@ namespace Clock
 		/// Event handling
 		/// </summary>
 
-		void GetNextAlarm()
+		public void GetNextAlarm()
 		{
 			List<Alarm> alarms = new List<Alarm>();
 			foreach (Alarm item in alarmList.ListBoxAlarms.Items)
@@ -193,6 +196,7 @@ namespace Clock
 			{
 				MessageBox.Show(alarm.Filename, "Alarm!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("ALARM:----" + alarm.ToString());
+				PlayAlarm();
                 GetNextAlarm();
 			}
 			if(DateTime.Now.Second == 0)
@@ -200,6 +204,15 @@ namespace Clock
 				GetNextAlarm();
                 Console.WriteLine("Minute");
             }
+		}
+		void PlayAlarm()
+		{
+			axWindowsMediaPlayer1.URL = alarm.Filename;
+			axWindowsMediaPlayer1.settings.volume = 100;
+			axWindowsMediaPlayer1.Ctlcontrols.play();
+			//Path.GetFullPath("music.mp3")
+			//axWindowsMediaPlayer1.PLat
+			axWindowsMediaPlayer1.Visible = true;
 		}
 
 		#region labelTime
@@ -384,5 +397,10 @@ namespace Clock
 
 		[DllImport("kernel32.dll")]
 		static extern bool AllocConsole();
+
+		private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
