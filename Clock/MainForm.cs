@@ -14,6 +14,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using System.Globalization;
+using AxWMPLib;
 
 namespace Clock
 {
@@ -188,6 +189,7 @@ namespace Clock
 			if (showWeekdayToolStripMenuItem.Checked) labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
 			notifyIconSystemTray.Text = "Current time: " + labelTime.Text;
 			if (
+				alarm != null &&
 				alarm.Weekdays[DateTime.Now.DayOfWeek - 1 < 0 ? 6 : (int)DateTime.Now.DayOfWeek - 1] == true &&
 				DateTime.Now.Hour == alarm.Time.Hour && 
 				DateTime.Now.Minute == alarm.Time.Minute && 
@@ -213,6 +215,10 @@ namespace Clock
 			//Path.GetFullPath("music.mp3")
 			//axWindowsMediaPlayer1.PLat
 			axWindowsMediaPlayer1.Visible = true;
+		}
+		void SetPlayerInvisible(object sender, AxWMPLib._WMPOCXEvents_EndOfStreamEvent e)
+		{
+			axWindowsMediaPlayer1.Visible = false;
 		}
 
 		#region labelTime
@@ -391,6 +397,7 @@ namespace Clock
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SaveSettings();
+			alarmList.SaveAlarmsToFile("alarms.csv");
 		}
 
 

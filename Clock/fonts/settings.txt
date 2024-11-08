@@ -1,5 +1,5 @@
--128
--65281
-Bestie Seventy.ttf
+-16777216
+-8355585
+Robotics Galactus Bold.ttf
 True
-True
+False
