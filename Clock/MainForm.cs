@@ -210,15 +210,16 @@ namespace Clock
 		void PlayAlarm()
 		{
 			axWindowsMediaPlayer1.URL = alarm.Filename;
-			axWindowsMediaPlayer1.settings.volume = 100;
+			axWindowsMediaPlayer1.settings.volume = 30;
 			axWindowsMediaPlayer1.Ctlcontrols.play();
 			//Path.GetFullPath("music.mp3")
 			//axWindowsMediaPlayer1.PLat
 			axWindowsMediaPlayer1.Visible = true;
 		}
-		void SetPlayerInvisible(object sender, AxWMPLib._WMPOCXEvents_EndOfStreamEvent e)
+		void SetPlayerInvisible(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
 		{
-			axWindowsMediaPlayer1.Visible = false;
+			if(axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+				axWindowsMediaPlayer1.Visible = false;
 		}
 
 		#region labelTime
