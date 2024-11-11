@@ -216,7 +216,7 @@ namespace Clock
 			if(!File.Exists(alarm.Filename))
 			{
                 Console.WriteLine("Err: File not found");
-				axWindowsMediaPlayer1.URL = "..\\Sound\\ДДТ - Это всё";
+				axWindowsMediaPlayer1.URL = alarm.Filename;
 
 			}
 				axWindowsMediaPlayer1.settings.volume = 30;

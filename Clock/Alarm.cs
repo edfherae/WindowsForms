@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.IO;
+
 namespace Clock
 {
 	public class Alarm:IComparable
@@ -12,13 +14,13 @@ namespace Clock
 		public DateTime Date { get; set; }
 		public DateTime Time { get; set; }
 		public bool[] Weekdays { get; private set; }
-		string filename = "..\\Sound\\ДДТ - Это всё";
+		string filename;
 		public string Filename 
 		{
 			set => filename = value;
-			get => System.IO.File.Exists(filename) ? filename : DEFAULT_ALARM_FILE;
+			get => File.Exists(filename) ? filename : Path.GetFullPath(DEFAULT_ALARM_FILE);
 		}
-		readonly string DEFAULT_ALARM_FILE = "..\\Sound\\ДДТ - Это всё";
+		public readonly string DEFAULT_ALARM_FILE = "..\\Sound\\ДДТ - Это всё";
 
 
 		public Alarm()
@@ -85,7 +87,7 @@ namespace Clock
 		}
 		public int CompareTo(object other)
 		{
-			return this.Time.CompareTo((other as Alarm).Time);
+			return this.Time.TimeOfDay.CompareTo((other as Alarm).Time.TimeOfDay);
 		}
 	}
 }
