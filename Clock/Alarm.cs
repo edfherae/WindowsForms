@@ -12,7 +12,14 @@ namespace Clock
 		public DateTime Date { get; set; }
 		public DateTime Time { get; set; }
 		public bool[] Weekdays { get; private set; }
-		public string Filename { get; set; } = "";
+		string filename = "..\\Sound\\ДДТ - Это всё";
+		public string Filename 
+		{
+			set => filename = value;
+			get => System.IO.File.Exists(filename) ? filename : DEFAULT_ALARM_FILE;
+		}
+		readonly string DEFAULT_ALARM_FILE = "..\\Sound\\ДДТ - Это всё";
+
 
 		public Alarm()
 		{
