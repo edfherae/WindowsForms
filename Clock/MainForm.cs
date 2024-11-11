@@ -31,7 +31,7 @@ namespace Clock
 		Alarm alarm;
 
 		string FontFile { get; set; }
-
+		public string DEFAULT_ALARM_FILE = Path.GetFullPath("..\\..\\Sound\\ДДТ - Это всё.mp3");
 		public MainForm()
 		{
 			InitializeComponent();
@@ -211,15 +211,15 @@ namespace Clock
 		{
 			//try
 			//{
-				axWindowsMediaPlayer1.URL = alarm.Filename;
+				axWindowsMediaPlayer1.URL = File.Exists(alarm.Filename) ? alarm.Filename : Path.GetFullPath(DEFAULT_ALARM_FILE);
 
-			if(!File.Exists(alarm.Filename))
-			{
-                Console.WriteLine("Err: File not found");
-				axWindowsMediaPlayer1.URL = alarm.Filename;
+			//if(!File.Exists(alarm.Filename))
+			//{
+   //             Console.WriteLine("Err: File not found");
+			//	axWindowsMediaPlayer1.URL = alarm.Filename;
 
-			}
-				axWindowsMediaPlayer1.settings.volume = 30;
+			//}
+				axWindowsMediaPlayer1.settings.volume = 60;
 				axWindowsMediaPlayer1.Ctlcontrols.play();
 				axWindowsMediaPlayer1.Visible = true;
                 Console.WriteLine($"PlayAlarm:\t{Directory.GetCurrentDirectory()}");
